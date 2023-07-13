@@ -1,0 +1,12 @@
+{
+  "name": "viem",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+  }
+}
