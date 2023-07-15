@@ -1,16 +1,18 @@
 {
-  "name": "viem",
+  "name": "example-app",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check build-only",
+    "with-env": "dotenv -e .env -e ../../.env --",
+    "dev": "pnpm with-env vite",
+    "build": "pnpm clean:dist && pnpm type-check && pnpm build-only",
     "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "test:unit": "pnpm with-env vitest",
+    "build-only": "pnpm with-env vite build",
+    "type-check": "pnpm with-env vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint:check": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "clean:dist": "rm -rf ./dist"
   },
   "dependencies": {
     "@web3-monorepo/example-erc20": "workspace:*",
@@ -30,7 +32,6 @@
     "@wagmi/cli": "^1.3.0",
     "@web3-monorepo/eslint-config": "workspace:*",
     "jsdom": "^22.1.0",
-    "npm-run-all": "^4.1.5",
     "typescript": "~5.1.6",
     "vite": "^4.4.3",
     "vitest": "^0.33.0",

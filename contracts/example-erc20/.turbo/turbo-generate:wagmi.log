@@ -1,0 +1,16 @@
+
+> @web3-monorepo/example-erc20@ generate:wagmi /home/raz/Projects/Personal/viem/contracts/example-erc20
+> pnpm with-env wagmi generate
+
+
+> @web3-monorepo/example-erc20@ with-env /home/raz/Projects/Personal/viem/contracts/example-erc20
+> dotenv -e .env -e ../../.env -- "wagmi" "generate"
+
+- Validating plugins
+✔ Validating plugins
+- Resolving contracts
+✔ Resolving contracts
+- Running plugins
+✔ Running plugins
+- Writing to src/generated.ts
+✔ Writing to src/generated.ts

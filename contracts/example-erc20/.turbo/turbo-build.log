@@ -1,0 +1,16 @@
+
+> @web3-monorepo/example-erc20@ build /home/raz/Projects/Personal/viem/contracts/example-erc20
+> pnpm with-env unbuild
+
+
+> @web3-monorepo/example-erc20@ with-env /home/raz/Projects/Personal/viem/contracts/example-erc20
+> dotenv -e .env -e ../../.env -- "unbuild"
+
+ℹ Building @web3-monorepo/example-erc20
+✔ Build succeeded for example-erc20
+  dist/index.cjs (total size: 13.4 kB, chunk size: 13.4 kB, exports: erc20ABI, ierc20ABI, ierc20MetadataABI, sampleErc20ABI)
+
+  dist/index.mjs (total size: 13.3 kB, chunk size: 13.3 kB, exports: erc20ABI, ierc20ABI, ierc20MetadataABI, sampleErc20ABI)
+
+Σ Total dist size (byte size): 48.2 kB
+

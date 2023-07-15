@@ -1,0 +1,10 @@
+
+> @web3-monorepo/example-erc20@ compile:contracts /home/raz/Projects/Personal/viem/contracts/example-erc20
+> pnpm with-env hardhat compile
+
+
+> @web3-monorepo/example-erc20@ with-env /home/raz/Projects/Personal/viem/contracts/example-erc20
+> dotenv -e .env -e ../../.env -- "hardhat" "compile"
+
+Nothing to compile
+No need to generate any newer typings.

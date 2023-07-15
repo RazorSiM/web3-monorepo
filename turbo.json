@@ -1,0 +1,71 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": [
+        "./.env"
+    ],
+    "globalEnv": [
+        "EXAMPLE_KEY"
+    ],
+    "pipeline": {
+        "lint:check": {
+            "dependsOn": ["^build"],
+            "inputs": [
+                "**/*.ts",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.vue"
+            ]
+        },
+        "lint:fix": {
+            "inputs": [
+                "**/*.ts",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.vue"
+            ]
+        },
+        "build": {
+            "dependsOn": ["^generate:wagmi", "^build", "generate:wagmi"],
+            "inputs": [
+                "public/**/*",
+                "src/**/*",
+                "locales/**/*",
+                "vite.config.ts",
+                "vite-library.config.ts",
+                "build.config.ts"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "compile:contracts": {
+            "dependsOn": ["^compile:contracts"],
+            "outputs": ["artifacts", "cache"]
+        },
+        "generate:wagmi": {
+            "dependsOn": ["^compile:contracts", "compile:contracts"],
+            "outputs": ["src/generated.ts"]
+        },
+        "test:unit": {
+            "dependsOn": ["^build"],
+            "inputs": [
+                "src/**/*",
+                "tests/**/*",
+                "vitest.config.ts",
+                "vite.config.ts"
+            ]
+        },
+        "test:hardhat": {
+            "inputs": [
+                "src/**/*",
+                "tests/**/*",
+                "hardhat.config.ts"
+            ]
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true,
+            "dependsOn": ["^build", "^generate:wagmi", "generate:wagmi"]
+        }
+    }
+}

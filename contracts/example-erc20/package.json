@@ -19,12 +19,15 @@
     "./dist"
   ],
   "scripts": {
-    "compile": "hardhat compile",
-    "test": "hardhat test",
-    "node:hardhat": "hardhat node",
-    "deploy:hardhat": "hardhat run --network localhost ./scripts/deploy.ts",
-    "generate": "wagmi generate",
-    "build": "pnpm unbuild",
+    "with-env": "dotenv -e .env -e ../../.env --",
+    "clean": "hardhat clean",
+    "compile:contracts": "pnpm with-env hardhat compile",
+    "test:hardhat": "pnpm with-env hardhat test",
+    "node:hardhat": "pnpm with-env hardhat node",
+    "deploy:hardhat": "pnpm with-env hardhat run --network localhost ./scripts/deploy.ts",
+    "generate:wagmi": "pnpm with-env wagmi generate",
+    "generate:wagmi:dev": "pnpm with-env wagmi generate --watch",
+    "build": "pnpm with-env unbuild",
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix"
   },

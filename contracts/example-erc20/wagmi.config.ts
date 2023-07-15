@@ -7,11 +7,6 @@ export default defineConfig({
   plugins: [
     hardhat({
       project: './',
-      commands: {
-        clean: 'pnpm hardhat clean',
-        build: 'pnpm hardhat compile',
-        rebuild: 'pnpm hardhat compile',
-      },
     }),
   ],
 })
