@@ -5,8 +5,5 @@
   "scripts": {
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "dependencies": {},
-  "devDependencies": {
   }
 }

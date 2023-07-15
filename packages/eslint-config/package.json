@@ -1,0 +1,18 @@
+{
+  "name": "@web3-monorepo/eslint-config",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.cjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.7",
+    "@unocss/eslint-config": "^0.53.5",
+    "eslint": "^8.44.0",
+    "eslint-config-turbo": "^1.10.7"
+  }
+}
