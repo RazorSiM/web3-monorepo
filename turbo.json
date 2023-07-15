@@ -62,6 +62,20 @@
                 "hardhat.config.ts"
             ]
         },
+        "node:hardhat": {
+            "cache": false,
+            "persistent": true
+        },
+        "deploy:hardhat": {
+            "cache": false
+        },
+        "wait": {
+            "cache": false
+        },
+        "start-and-deploy": {
+            "cache": false,
+            "persistent": true
+        },
         "dev": {
             "cache": false,
             "persistent": true,

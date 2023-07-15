@@ -9,7 +9,8 @@
     "test:unit": "turbo test:unit",
     "test:hardhat": "turbo test:hardhat",
     "test": "turbo lint:check test:unit test:hardhat",
-    "dev:example-app": "turbo run dev --filter=example-app..."
+    "dev:example-app": "turbo run dev --filter=example-app...",
+    "localNode:example-erc20": "turbo run start-and-deploy --filter=example-erc20..."
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
