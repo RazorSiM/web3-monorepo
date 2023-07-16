@@ -1,33 +1,37 @@
 <script setup lang="ts">
-import { createPublicClient, getContract, http } from 'viem'
-import { localhost } from 'viem/chains'
-import { sampleErc20ABI } from '@web3-monorepo/example-erc20'
+import { type GetAccountResult, fetchToken, getAccount, watchAccount } from '@wagmi/core'
+import { onUnmounted, ref } from 'vue'
 
-const client = createPublicClient({
-  chain: localhost,
-  transport: http(),
-})
-
-const blockNumber = await client.getBlockNumber()
-
-const contract = getContract({
+const token = await fetchToken({
   address: '0x5fbdb2315678afecb367f032d93f642f64180aa3',
-  abi: sampleErc20ABI,
-  publicClient: client,
 })
 
-const name = await contract.read.name()
-const symbol = await contract.read.symbol()
-const decimals = await contract.read.decimals()
-const totalSupply = await contract.read.totalSupply()
+const account = ref<GetAccountResult | null>(null)
+account.value = await getAccount()
+
+const unwatchAccount = watchAccount((newAccount) => {
+  account.value = newAccount
+})
+
+onUnmounted(() => {
+  unwatchAccount()
+})
 </script>
 
 <template>
   <main>
-    {{ blockNumber }}
-    {{ name }}
-    {{ symbol }}
-    {{ decimals }}
-    {{ totalSupply }}
+    <w3m-core-button icon="hide" />
+    <div class="w-full flex flex-col">
+      <div>
+        {{ token.name }}
+        {{ token.symbol }}
+        {{ token.decimals }}
+        {{ token.totalSupply.formatted }}
+      </div>
+      <div v-if="account">
+        {{ account.address }}
+        {{ account.status }}
+      </div>
+    </div>
   </main>
 </template>
