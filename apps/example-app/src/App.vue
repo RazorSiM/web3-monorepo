@@ -1,9 +1,23 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
+<script lang="ts" setup>
+const route = useRoute()
+const layout = computed(() => {
+  return route.meta.layout || 'DefaultLayout'
+})
 </script>
 
 <template>
-  <Suspense>
-    <RouterView />
-  </Suspense>
+  <div>
+    <component :is="layout">
+      <RouterView v-slot="{ Component } ">
+        <template v-if="Component">
+          <Suspense>
+            <component :is="Component" />
+            <template #fallback>
+              ...loading...
+            </template>
+          </Suspense>
+        </template>
+      </RouterView>
+    </component>
+  </div>
 </template>

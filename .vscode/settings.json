@@ -5,6 +5,7 @@
     "source.fixAll.eslint": true,
     "source.organizeImports": false
   },
+  "unocss.root": "apps/example-app",
 
   // The following is optional.
   // It's better to put under project setting `.vscode/settings.json`
@@ -21,5 +22,9 @@
     "json",
     "jsonc",
     "yaml"
-  ]
+  ],
+  "i18n-ally.localesPaths": [
+    "apps/example-app/locales"
+  ],
+  "i18n-ally.enabledFrameworks": "vue"
 }
